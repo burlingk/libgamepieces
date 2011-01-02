@@ -23,7 +23,7 @@
 # of the boost library.
 #BOOST = -I/path/to/boost
 
-BOOST = ""
+BOOST = $(empty)
 INCLUDES = -I./include ${BOOST}
 LIBS     = -L./lib
 
@@ -47,54 +47,30 @@ AR  = ar
 
 # $(LGPMODULES) is the list of pieces for the LGP library.
 
-LGPMODULES = lgp_creature \
-			 lgp_dicebag 
+#LGPMODULES = lgp_creature \
+#             lgp_dicebag
+
+LGPMODULES = lgp_object
 
 LGPOBJECTS := $(addsuffix .o,$(LGPMODULES))
 
 
-all: $(LGPOBJECTS)
+all: lib/libgamepieces.a
 
 #
 # This rule will be the one to compile the modules with
 # source files located in src/lgp
 $(LGPOBJECTS): %.o: src/lgp/%.cpp
-	@echo ====================
-	@echo = Req: $<
-	@echo = Target: $@
-	@echo ====================
-
-
-
-# all: lib/libgamepieces.a
-
-# clean is the target to "reset" the compile environment.
-# It will need to be updated when new targets are added.
-clean:
-	rm -rf lib/libgamepieces.a
-	rm -rf *.o
-
-docs:
-	doxygen
-
-docclean:
-	rm -rf doc/html
-
-
-rebuild: clean all
-
-#####
-# distclean is to be run before making commits, pushes, or creating a tarball.
-#####
-distclean:  docclean clean
+	$(CXX) -c $(INCLUDES) -o $@ $<
 
 
 
 #
 # libgamepieces.a
 #
-lib/libgamepieces.a: $(OBJECTS)
-	$(AR) rcs lib/libgamepieces $(OBJECTS)
+lib/libgamepieces.a: $(LGPOBJECTS)
+	$(AR) rcs lib/libgamepieces.a $(LGPOBJECTS)
+
 
 #lib/libgamepieces.a: obj/lgp_dicebag.o obj/lgp_random.o obj/lgp_dicenode.o obj/lgp_object.o \
 #	obj/lgp_thing.o obj/lgp_creature.o obj/lgp_world.o include/lgp_array.hpp include/lgp.hpp \
@@ -103,3 +79,21 @@ lib/libgamepieces.a: $(OBJECTS)
 #	obj/lgp_thing.o obj/lgp_creature.o obj/lgp_world.o obj/lgp_generator.o obj/lgp_message.o obj/lgp_gencreature.o
 	
 
+# General Maintenance Rules.
+
+clean:
+	rm -rf lib/libgamepieces.a
+	rm -rf $(LGPOBJECTS)
+
+docs:
+	doxygen
+
+docclean:
+	rm -rf doc/html
+
+rebuild: clean all
+
+#####
+# distclean is to be run before making commits, pushes, or creating a tarball.
+#####
+distclean:  docclean clean
