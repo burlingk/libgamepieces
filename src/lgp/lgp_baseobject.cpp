@@ -1,4 +1,4 @@
-/// \file lgp_object.cpp
+/// \file lgp_baseobject.cpp
 /// \brief The base object class for the LGP objects
 /// \author Kenneth. M. Burling Jr. (a.k.a. Emry)
 /// \version lgp-0.03-r1
@@ -24,15 +24,24 @@
 /// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ///
 ///
-/// This is the bas object class for LGP Objects.  
+/// This is the bas object class for LGP Objects.
 ///
-/// File last updated 12:00 UTC on 2 Jan 2011
+/// File last updated 12:50 UTC on 8 Jan 2011
 
-#include <lgp/lgp_object.hpp>
+#include <lgp/lgp_baseobject.hpp>
 
-namespace lgp {
+namespace lgp
+{
+    BaseObject::BaseObject()
+    {
+    }
+    BaseObject::BaseObject(const BaseObject& orig)
+    {
+    }
+
+    BaseObject::~BaseObject()
+    {
+    }
     
+} //end namepsace lgp
 
-
-
-}
