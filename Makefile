@@ -47,10 +47,11 @@ AR  = ar
 
 # $(LGPMODULES) is the list of pieces for the LGP library.
 
-#LGPMODULES = lgp_creature \
-#             lgp_dicebag
 
-LGPMODULES = lgp_object
+LGPMODULES = lgp_dicebag \
+             lgp_dicenode \
+             lgp_dicestack \
+             lgp_random
 
 LGPOBJECTS := $(addsuffix .o,$(LGPMODULES))
 
