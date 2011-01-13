@@ -72,13 +72,10 @@ $(LGPOBJECTS): %.o: src/lgp/%.cpp
 lib/libgamepieces.a: $(LGPOBJECTS)
 	$(AR) rcs lib/libgamepieces.a $(LGPOBJECTS)
 
+bin/game: lib/libgamepieces.a src/game/main.cpp
+	$(CXX) $(INCLUDES) $(LIBS) $(DEBUG) src/game/main.cpp -lgamepieces -o bin/game
 
-#lib/libgamepieces.a: obj/lgp_dicebag.o obj/lgp_random.o obj/lgp_dicenode.o obj/lgp_object.o \
-#	obj/lgp_thing.o obj/lgp_creature.o obj/lgp_world.o include/lgp_array.hpp include/lgp.hpp \
-#	obj/lgp_generator.o obj/lgp_message.o obj/lgp_gencreature.o
-#	${AR} rcs lib/libgamepieces.a obj/lgp_dicebag.o obj/lgp_random.o obj/lgp_dicenode.o obj/lgp_object.o \
-#	obj/lgp_thing.o obj/lgp_creature.o obj/lgp_world.o obj/lgp_generator.o obj/lgp_message.o obj/lgp_gencreature.o
-	
+game: bin/game
 
 # General Maintenance Rules.
 

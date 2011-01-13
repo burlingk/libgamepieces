@@ -62,14 +62,14 @@
 ///  based iterators will not be as effective as they would be with a vector, because they are not 100%
 ///  contiguous.  Old fashioned integers will work better.
 ///
-/// File last updated 09:35 UTC on 13 Oct 2009
+/// File last updated 14:35 UTC on 13 Jan 2011
 
 #ifndef LGP_ARRAY_HPP_
 #define LGP_ARRAY_HPP_
 
 #include <iostream>
 
-#include <lgp_exceptions.hpp>
+#include <lgp/lgp_exceptions.hpp>
 
 namespace lgp
 {
