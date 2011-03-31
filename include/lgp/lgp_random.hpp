@@ -1,5 +1,5 @@
 /// \file lgp_random.hpp
-/// \brief A set of functions to deal with randome numbers.
+/// \brief A set of functions to deal with random numbers.
 /// \author Kenneth. M. Burling Jr. (a.k.a Emry)
 /// \version Alpha-0.001
 ///

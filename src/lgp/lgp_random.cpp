@@ -1,6 +1,6 @@
 /// \file lgp_random.cpp
 /// \brief A set of functions to deal with random numbers.
-/// \author Kenneth. M. Burling Jr. (a.k.a. Emry)
+/// \author Kenneth. M. Burling Jr. (a.k.a.Emry)
 /// \version Alpha-0.001
 ///
 /// copyright: Copyright &copy; 2008, 2009, 2010 K. M. Burling Jr.<br>

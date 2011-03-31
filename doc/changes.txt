@@ -1,0 +1,11 @@
+31 March 2011
+  * This file generated.
+  * libgamepieces Project restarted using the random numbers code and exceptions code from the previous project as a starting point.
+  * Made a few spelling corrections in the doxygen formatted comments.
+  * looked over lgp::Random.  It looks sufficient for the moment.  It is simplistic, but it does not have to be complex.
+    If it is decided later that some function is being done repeatedly, then I may add functionality to lgp::Random.
+  * lgp::DiceBag looks ok for now as well.  If new features are needed, they will be added.
+  * lgp::DiceStack and associated code is not currently 100% a part of the project, but it should be safe, and it may be of
+    use later, so I am leaving it in the tree, and will occasionally work on it. Others are free to play with it as well.
+    I am not counting it against progress at this time though.
+  * Created the initial files for lgp::ObjectBase.

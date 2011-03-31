@@ -49,7 +49,7 @@
 #ifndef LGP_EXCEPTIONS_HPP_
 #define LGP_EXCEPTIONS_HPP_
 
-#include <boost/exception.hpp>
+#include <boost/exception/all.hpp>
 
 
 namespace lgp
