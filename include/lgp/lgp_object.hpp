@@ -1,5 +1,5 @@
-/// \file lgp_objectbase.cpp
-/// \brief The Object Interface Class
+/// \file lgp_object.hpp
+/// \brief The Base Class for Objects that represent real things in the world
 /// \author Kenneth. M. Burling Jr. (a.k.a Emry)
 /// \version Alpha-0.001
 ///
@@ -23,18 +23,32 @@
 /// WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 /// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ///
-///  lgp::ObjectBase is the interface class for the lgp::Object serries of classes.
+///  lgp::Object is the base for the various objects that represent real things within the game world.
 ///  
-/// File last updated 16:21 UCT on 31 March 2011
+/// File last updated 07:13 UCT on 1 April 2011
 ///
 
 
 
+#ifndef _LGP_OBJECT_HPP_
+#define _LGP_OBJECT_HPP_
+
+#include <lgp/lgp_objectbase.hpp>
+
 namespace lgp {
   
-  
-  
+  class Object : public ObjectBase
+  {
+  public:
+   ObjectID getId(void);           ///< Return the object's Object ID
+   void setId(ObjectID newId);     ///< Set the object's Object ID
+    
+  private:
+    
+  };
   
 } //end namespace lgp
 
+
+#endif //end ifndef _LGP_OBJECT_HPP_
 

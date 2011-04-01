@@ -1,3 +1,8 @@
+1 April 2011
+  * Created initial files for lgp_object.cpp and lgp_object.hpp
+  * deleted lgp_objectbase.cpp.  The implementation file is not needed for a fully abstract class.
+    the constructor and destructor are easily defined inline, as they are simply empty return statements.
+
 31 March 2011
   * This file generated.
   * libgamepieces Project restarted using the random numbers code and exceptions code from the previous project as a starting point.
