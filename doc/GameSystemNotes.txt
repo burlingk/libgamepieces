@@ -1,0 +1,36 @@
+Common Game System Components:
+  * Skills
+  * Attributes
+  * Ability Scores
+  * Hit Points
+  * Energy Points
+  * Character Level
+  * Combat Abilities
+  * Hitpoints
+  * Defense
+
+
+
+Simple System:
+
+No classes.
+HP: 1d10/level
+EP: 1d4/level
+MP: N/A
+XP to Level current level X 100
+
+Stats:
+STR:
+IQ:
+DEX:
+HLT:
+
+Stats default to 0.  Range -5 to +5
+
+Abilities:
+Attack
+Defense
+Armor
+
+
+

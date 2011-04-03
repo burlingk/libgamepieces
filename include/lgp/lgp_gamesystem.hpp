@@ -1,5 +1,5 @@
-/// \file lgp_object.hpp
-/// \brief The Base Class for Objects that represent real things in the world
+/// \file lgp_gamesystem.hpp
+/// \brief The base class to represent a game system.
 /// \author Kenneth. M. Burling Jr. (a.k.a Emry)
 /// \version Alpha-0.001
 ///
@@ -23,44 +23,45 @@
 /// WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 /// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ///
-///  lgp::Object is the base for the various objects that represent real things within the game world.
+///  lgp::GameSystem is the class that game systems will derive from.  It is the core of the plugale game system
+///  interface for the libgamepieces library.  The game system is an important aspect of any game, especially RPG's
+///  where the player will be expected to have more insite into the system than in most games.
+///  
+///  The game system plays a strong roll in determining how different aspects of the game world will be modeled and
+///  how they will be presented to the player.  It has a big impact on how the characters interact with their world.
 ///  
 /// File last updated 01:00 UCT on 3 April 2011
 ///
 
 
+#ifndef _LGP_GAMESYSTEM_HPP_
+#define _LGP_GAMESYSTEM_HPP_
 
-#ifndef _LGP_OBJECT_HPP_
-#define _LGP_OBJECT_HPP_
 
-#include <lgp/lgp_objectbase.hpp>
+#include <iostream>
+
 
 namespace lgp {
-  
-  class Object : public ObjectBase
+  class GameSystem
   {
   public:
     
-   //Identification
-   ObjectID getId(void);           ///< Return the object's Object ID
-   void setId(ObjectID newId);     ///< Set the object's Object ID
-   
-   //Location
-   long int locX(void);
-   long int locY(void);
-   long int locZ(void);
-   void setLocX(long int x);
-   void setLocY(long int y);
-   void setLocZ(long int z);
-   void setLoc(long int x, long int y, long int z);
-   
-    
   private:
+    std::string gameSystemNameM;
+    std::string gameSystemVersionM;
     
-  };
+    
+  };//end class lgp::GameSystem
+  
+  
+  
+  
   
 } //end namespace lgp
 
 
-#endif //end ifndef _LGP_OBJECT_HPP_
 
+
+
+
+#endif //end ifndef _LGP_GAMESYSTEM_HPP_

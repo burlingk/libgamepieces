@@ -1,3 +1,9 @@
+3 April 2011
+  * Began fleshing out the interface for lgp::Object.
+  * Began to flesh out lgp::GameSystem.
+  * Created doc/GameSystemNotes.txt to brain storm about game system requirements.
+  * Made a slight edit to objects.dia to reprent the name chosen for lgp::ObjectBase.
+
 1 April 2011
   * Created initial files for lgp_object.cpp and lgp_object.hpp
   * deleted lgp_objectbase.cpp.  The implementation file is not needed for a fully abstract class.
