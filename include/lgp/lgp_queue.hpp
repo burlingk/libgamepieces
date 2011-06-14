@@ -42,18 +42,19 @@ namespace lgp {
 	 class Queue
 	 {
 		  protected:
-				Node<T> * frontM; //The front of the Queue
-				Node<T> * backM;  //The Back of the Queue
-				int sizeM;        //The size of the Queue
+				Node<T> * frontM;    //The front of the Queue
+				Node<T> * backM;     //The Back of the Queue
+				int sizeM;           //The size of the Queue
 
 		  public:
-				Queue();            //Initialize an empty queue
-				Queue(T value);     //Initialize the queue with a starting value
+				Queue();             //Initialize an empty queue
+				Queue(T value);      //Initialize the queue with a starting value
 				~Queue();
-				T front();            //Take a peak at the top of the stack
-				T pop();            //Remove the top value from the stack, returning its value
-				void push(T value); //Add a value to the stack.
-				int size();         //return the size of the stack (as stored in sizeM)
+				T front();           //Take a peak at the top of the stack
+				T pop();             //Remove the top value from the stack, returning its value
+				void push(T value);  //Add a value to the stack.
+				int size();          //return the size of the stack (as stored in sizeM)
+				bool empty(void);    //Return True if size == 0;
 	 };
 
 
@@ -124,10 +125,12 @@ namespace lgp {
 	 {
 		  return sizeM;
 	 }	 
-
-
 	 
-
+	 template <class T>
+	 bool Queue<T>::empty()
+	 {
+	 	 return (sizeM <= 0);
+	 }
 
 
 } //end namespace lgp

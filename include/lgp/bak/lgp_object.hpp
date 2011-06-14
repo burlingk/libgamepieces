@@ -45,13 +45,7 @@ namespace lgp {
    ObjectID getId(void);           ///< Return the object's Object ID
    void setId(ObjectID newId);     ///< Set the object's Object ID
    
-   //Message Processing
-   void recieve_message(std::string message);
-   void process_message_queue(void);
-    
-
-    
-  private:
+   //Location
    long int locX(void);
    long int locY(void);
    long int locZ(void);
@@ -60,6 +54,9 @@ namespace lgp {
    void setLocZ(long int z);
    void setLoc(long int x, long int y, long int z);
    
+    
+  private:
+    
   };
   
 } //end namespace lgp

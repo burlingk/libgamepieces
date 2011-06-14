@@ -1,4 +1,4 @@
-/// \file lgp_object.hpp
+/// \file lgp_object.cpp
 /// \brief The Base Class for Objects that represent real things in the world
 /// \author Kenneth. M. Burling Jr. (a.k.a Emry)
 /// \version Alpha-0.001
@@ -25,45 +25,16 @@
 ///
 ///  lgp::Object is the base for the various objects that represent real things within the game world.
 ///  
-/// File last updated 01:00 UCT on 3 April 2011
+/// File last updated 07:13 UCT on 1 April 2011
 ///
 
 
 
-#ifndef _LGP_OBJECT_HPP_
-#define _LGP_OBJECT_HPP_
-
-#include <lgp/lgp_objectbase.hpp>
-
 namespace lgp {
   
-  class Object : public ObjectBase
-  {
-  public:
-    
-   //Identification
-   ObjectID getId(void);           ///< Return the object's Object ID
-   void setId(ObjectID newId);     ///< Set the object's Object ID
-   
-   //Message Processing
-   void recieve_message(std::string message);
-   void process_message_queue(void);
-    
-
-    
-  private:
-   long int locX(void);
-   long int locY(void);
-   long int locZ(void);
-   void setLocX(long int x);
-   void setLocY(long int y);
-   void setLocZ(long int z);
-   void setLoc(long int x, long int y, long int z);
-   
-  };
+  
+  
   
 } //end namespace lgp
 
-
-#endif //end ifndef _LGP_OBJECT_HPP_
 

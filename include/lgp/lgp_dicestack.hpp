@@ -69,6 +69,7 @@ namespace lgp
     virtual DiceNode & die(int index=0);
     virtual bool isEmpty(void);
     virtual int size(void);
+    virtual bool empty(void);
   }; //end class DiceStack
 
 }//end namespace lgp

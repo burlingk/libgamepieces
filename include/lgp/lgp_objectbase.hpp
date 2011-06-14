@@ -48,23 +48,9 @@ namespace lgp {
     ObjectBase(){return;};   
     virtual ~ObjectBase(){return;};
     
-    //interface functions
+    virtual void recieve_message(std::string)=0;
+    virtual void process_message_queue(void);
     
-    //Identification
-    virtual ObjectID getId(void)=0;           ///< Return an Object's Object ID
-    virtual void setId(ObjectID newId);       ///< Set an Object's Object ID
-
-    //Location
-    virtual long int locX(void);              ///< X Coordinate
-    virtual long int locY(void);              ///<Y Coordinate
-    virtual long int locZ(void);              ///<Z Coordinate
-    virtual void setLocX(long int x);
-    virtual void setLocY(long int y);
-    virtual void setLocZ(long int z);
-    virtual void setLoc(long int x, long int y, long int z);
-   
-   
-   
   };
   
   

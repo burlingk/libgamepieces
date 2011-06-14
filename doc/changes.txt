@@ -20,3 +20,8 @@
     use later, so I am leaving it in the tree, and will occasionally work on it. Others are free to play with it as well.
     I am not counting it against progress at this time though.
   * Created the initial files for lgp::ObjectBase.
+
+12 June 2011
+  * First change in a while.  Just added lgp::Queue<T>::empty().
+  * Added lgp::Stack::empty().
+  * Added lgp::DiceStack::empty().

@@ -186,7 +186,10 @@ namespace lgp
     return countM;
   }
 
-
+  bool DiceStack::empty(void)
+  {
+  	return (countM <= 0);
+  }
 }//end namespace lgp
 
 

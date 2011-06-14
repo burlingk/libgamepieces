@@ -53,6 +53,7 @@ namespace lgp {
 				T pop();            //Remove the top value from the stack, returning its value
 				void push(T value); //Add a value to the stack.
 				int size();         //return the size of the stack (as stored in sizeM)
+				bool empty();
 	 };
 
 
@@ -112,6 +113,12 @@ namespace lgp {
 	 int Stack<T>::size()
 	 {
 		  return sizeM;
+	 }
+	 
+	 template <class T>
+	 bool Stack<T>::empty()
+	 {
+	 	 return (sizeM <= 0);
 	 }
 
 		 
