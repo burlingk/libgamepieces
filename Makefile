@@ -41,7 +41,7 @@ DEBUG = -ggdb
 # another platform, then you may need to change these as well.
 # 
 CC  = gcc
-CXX = g++
+CPP = g++
 AR  = ar
 
 
@@ -51,19 +51,25 @@ AR  = ar
 LGPMODULES = lgp_dicebag \
              lgp_dicenode \
              lgp_dicestack \
-             lgp_random
+             lgp_random \
+             lgp_message
 
 LGPOBJECTS := $(addsuffix .o,$(LGPMODULES))
 
+TESTS = test_message
 
-all: lib/libgamepieces.a
+all: lib/libgamepieces.a tests
 
 #
 # This rule will be the one to compile the modules with
 # source files located in src/lgp
 $(LGPOBJECTS): %.o: src/lgp/%.cpp
-	$(CXX) -c $(INCLUDES) -o $@ $<
+	$(CPP) -c $(INCLUDES) -o $@ $<
 
+tests: bin/test/test_message
+
+bin/test/test_message: src/test/test_message.cpp lib/libgamepieces.a
+	$(CPP) $(INCLUDES) $(LIBS) -o bin/test/test_message src/test/test_message.cpp -lgamepieces 
 
 
 #
@@ -73,7 +79,7 @@ lib/libgamepieces.a: $(LGPOBJECTS)
 	$(AR) rcs lib/libgamepieces.a $(LGPOBJECTS)
 
 bin/game: lib/libgamepieces.a src/game/main.cpp
-	$(CXX) $(INCLUDES) $(LIBS) $(DEBUG) src/game/main.cpp -lgamepieces -o bin/game
+	$(CPP) $(INCLUDES) $(LIBS) $(DEBUG) src/game/main.cpp -lgamepieces -o bin/game
 
 game: bin/game
 
@@ -82,6 +88,9 @@ game: bin/game
 clean:
 	rm -rf lib/libgamepieces.a
 	rm -rf $(LGPOBJECTS)
+	rm -rf bin/test/test_message
+	rm -rf /bin/game
+	
 
 docs:
 	doxygen

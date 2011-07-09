@@ -1,14 +1,3 @@
-3 April 2011
-  * Began fleshing out the interface for lgp::Object.
-  * Began to flesh out lgp::GameSystem.
-  * Created doc/GameSystemNotes.txt to brain storm about game system requirements.
-  * Made a slight edit to objects.dia to reprent the name chosen for lgp::ObjectBase.
-
-1 April 2011
-  * Created initial files for lgp_object.cpp and lgp_object.hpp
-  * deleted lgp_objectbase.cpp.  The implementation file is not needed for a fully abstract class.
-    the constructor and destructor are easily defined inline, as they are simply empty return statements.
-
 31 March 2011
   * This file generated.
   * libgamepieces Project restarted using the random numbers code and exceptions code from the previous project as a starting point.
@@ -21,7 +10,25 @@
     I am not counting it against progress at this time though.
   * Created the initial files for lgp::ObjectBase.
 
+
+1 April 2011
+  * Created initial files for lgp_object.cpp and lgp_object.hpp
+ 
+3 April 2011
+  * Began fleshing out the interface for lgp::Object.
+  * Began to flesh out lgp::GameSystem.
+  * Created doc/GameSystemNotes.txt to brain storm about game system requirements.
+  * Made a slight edit to objects.dia to reprent the name chosen for lgp::ObjectBase.
+  
 12 June 2011
   * First change in a while.  Just added lgp::Queue<T>::empty().
   * Added lgp::Stack::empty().
   * Added lgp::DiceStack::empty().
+  
+9 July 2011
+  * Created lgp::ObjectData as a part of moving more core components into the lgp namespace.
+  * Reworked the concept of lgp::Object in the process of moving to a completely Object
+    driven, Message passing approach.
+  * Moved the test program for lgp::Message to this project as well 
+    
+    

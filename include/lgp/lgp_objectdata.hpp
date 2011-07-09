@@ -1,9 +1,10 @@
-/// \file lgp_objectbase.hpp
-/// \brief The Object Interface Class
+
+/// \file lgp_objectdata.hpp
+/// \brief enum ObjectData will declare various enumerated constants for object related information.
 /// \author Kenneth. M. Burling Jr. (a.k.a Emry)
 /// \version Alpha-0.001
 ///
-/// copyright: Copyright &copy; 2008, 2009, 2010 K. M. Burling Jr.<br>
+/// copyright: Copyright &copy; 2011 K. M. Burling Jr.<br>
 ///            All Rights Reserved
 ///
 /// Redistribution and use in source and binary forms, with or without modification, are permitted provided that
@@ -23,40 +24,54 @@
 /// WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 /// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ///
-///  lgp::ObjectBase is the interface class for the lgp::Object serries of classes.
-///  
-/// File last updated 01:00 UCT on 3 April 2011
+/// lgp::ObjectData will define enums representing the various types and
+/// functions or objects.  As I am structuring everything to either be an
+/// object or be held by an objection, some of the values may be specific to
+/// certain kinds of objects.  This list will grow with time as the project
+/// as a whole grows.
 ///
+///
+/// File last updated 4 Jun 2011 20:00 UCT
 
-
-#ifndef _LGP_OBJECTBASE_HPP_
-#define _LGP_OBJECTBASE_HPP_
-
+#ifndef _LGP_OBJECTDATA_HPP_
+#define _LGP_OBJECTDATA_HPP_
 
 
 namespace lgp {
   
-  typedef long int ObjectID;
-  
-  
-  
-  ///\brief lgp::ObjectBase will be the interface class for the Object classes.
-  class ObjectBase
-  {
-  public:
-    //Constructor and Destructor
-    ObjectBase(){return;};   
-    virtual ~ObjectBase(){return;};
+  ///
+  enum ObjectData {
+  	NULLOBJECT=0,
+  	NULLMESSAGE=0,   //The Null Message.  Every system needs one.
+  	
+  	//Message Types
+    MSG,                  //A message that is intended to be sent to a target
+    COMMAND,              //A Command that should be processed by the target
+    INFOREQUEST,          //A request for information
+    INORESPONSE,          //A response to a request for information
     
-    virtual void recieve_message(std::string)=0;
-    virtual void process_message_queue(void);
+    //Object Scope
+    GLOBAL,
+    LOCAL,
+    PRIVATE,
     
-  };
+    //Target and Sender types
+    USER,                 //The message targets a user
+    SERVER,               //The message targets a server
+    CHANNEL,              //The message targets a channel
+    
+    ALLUSERS=9999         //A Global Message (targets all users)
+  }; //end enum ObjectData
+  
   
   
   
 } //end namespace lgp
 
 
-#endif //end ifndef _LGP_OBJECTBASE_HPP_
+
+
+#endif //end #ifndef _LGP_OBJECTDATA_HPP_
+
+
 

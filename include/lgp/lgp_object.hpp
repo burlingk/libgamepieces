@@ -23,7 +23,7 @@
 /// WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 /// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ///
-///  lgp::Object is the base for the various objects that represent real things within the game world.
+///  lgp::Object is the base interface class for various objects within the system
 ///  
 /// File last updated 01:00 UCT on 3 April 2011
 ///
@@ -33,33 +33,39 @@
 #ifndef _LGP_OBJECT_HPP_
 #define _LGP_OBJECT_HPP_
 
-#include <lgp/lgp_objectbase.hpp>
+#include <iostream>
+
+#include <lgp/ObjectData.hpp>
+#include <lgp/lgp_message.hpp>
 
 namespace lgp {
   
-  class Object : public ObjectBase
+	/// \brief A type identifying an Object ID.
+	///
+	/// At the moment, ObjectID is a long int.  this may change at
+	/// some future date.  I am also considdering a basic string type
+	/// as object ID's
+	typedef long int ObjectID;
+	
+  class Object 
   {
   public:
-    
-   //Identification
-   ObjectID getId(void);           ///< Return the object's Object ID
-   void setId(ObjectID newId);     ///< Set the object's Object ID
-   
-   //Message Processing
-   void recieve_message(std::string message);
-   void process_message_queue(void);
-    
-
-    
+  	Object();
+  	virtual ~Object();
+  	
+  	virtual ObjectID get_id(void);
+  	virtual ObjectData type(void);
+  	
+  	virtual void accept_message(std::string message);
+  	virtual void cycle(void);
+  	
   private:
-   long int locX(void);
-   long int locY(void);
-   long int locZ(void);
-   void setLocX(long int x);
-   void setLocY(long int y);
-   void setLocZ(long int z);
-   void setLoc(long int x, long int y, long int z);
-   
+  	ObjectData type_m;
+  	ObjectData access_m;
+  	ObjectData voice_m;
+  	
+  	//MessageQueue messageQueue_m;
+  	
   };
   
 } //end namespace lgp
