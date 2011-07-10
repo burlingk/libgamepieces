@@ -35,8 +35,9 @@
 
 #include <iostream>
 
-#include <lgp/ObjectData.hpp>
+#include <lgp/lgp_objectdata.hpp>
 #include <lgp/lgp_message.hpp>
+#include <lgp/lgp_queue.hpp>
 
 namespace lgp {
   
@@ -47,24 +48,29 @@ namespace lgp {
 	/// as object ID's
 	typedef long int ObjectID;
 	
+	typedef Queue<Message> MessageQueue;
+	
+	
   class Object 
   {
   public:
   	Object();
   	virtual ~Object();
   	
-  	virtual ObjectID get_id(void);
+  	virtual ObjectID id(void);
   	virtual ObjectData type(void);
   	
   	virtual void accept_message(std::string message);
-  	virtual void cycle(void);
+  	virtual void cycle(void)=0; 
   	
-  private:
+  protected:
+  	ObjectID id_m;
+  	
   	ObjectData type_m;
   	ObjectData access_m;
   	ObjectData voice_m;
   	
-  	//MessageQueue messageQueue_m;
+  	MessageQueue messageQueue_m;
   	
   };
   
@@ -72,4 +78,5 @@ namespace lgp {
 
 
 #endif //end ifndef _LGP_OBJECT_HPP_
+
 

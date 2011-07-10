@@ -52,7 +52,8 @@ LGPMODULES = lgp_dicebag \
              lgp_dicenode \
              lgp_dicestack \
              lgp_random \
-             lgp_message
+             lgp_message \
+             lgp_object
 
 LGPOBJECTS := $(addsuffix .o,$(LGPMODULES))
 
@@ -63,7 +64,7 @@ all: lib/libgamepieces.a tests
 #
 # This rule will be the one to compile the modules with
 # source files located in src/lgp
-$(LGPOBJECTS): %.o: src/lgp/%.cpp
+$(LGPOBJECTS): %.o: src/lgp/%.cpp include/lgp/%.hpp
 	$(CPP) -c $(INCLUDES) -o $@ $<
 
 tests: bin/test/test_message
@@ -100,12 +101,23 @@ docclean:
 
 rebuild: clean all
 
+#
+# homeinstall is a target to install/update a copy of the lib in a personal lib directory.
+# It attempts to install the lib at $HOME/lib/libgamepieces.a
+#
+# If there is no $HOME/lib directory, then it should create one.
+#
+homeinstall: lib/libgamepieces.a
+	mkdir -p $(HOME)/lib
+	cp -v lib/libgamepieces.a $(HOME)/lib/libgamepieces.a
+	mkdir -p $(HOME)/include/lgp
+	cp -v include/lgp/*.hpp $(HOME)/include/lgp/                                                                    
+
 #####
 # distclean is to be run before making commits, pushes, or creating a tarball.
 #####
 
-#
-
-
-
 distclean:  docclean clean
+
+
+

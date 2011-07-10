@@ -29,12 +29,72 @@
 ///
 
 
+#include <lgp/lgp_object.hpp>
 
 namespace lgp {
   
-  
-  
+	Object::Object() : type_m(NULLOBJECT), access_m(PRIVATE), voice_m(PRIVATE), id_m(0)
+	{
+		return;
+	}
+	
+	Object::~Object()
+	{
+		return;
+	}
+	
+	ObjectID Object::id(void)
+	{
+		return id_m;
+	}
+	
+	ObjectData Object::type(void)
+	{
+		return type_m;
+	}
+	
+	
+	void Object::accept_message(std::string message)
+	{
+		Message newMessage;
+		newMessage.unpack_message(message);
+		messageQueue_m.push(newMessage);
+	}
+	
+	// Example of a cycle function that doesn't really do anyting.
+	//
+	// void Object::cycle(void)
+	// {
+	//   if(messageQueue_m.empty()){return;}
+	//   
+	//   messageQueue_m.pop();
+	//   return;
+	// }
+  //
+  // In this example, the cycle just processes the Queue by
+  // removing the message at the top of the queue (if there is one).
+  //
+  // For a "real" object, this is where you would process the Message
+  // Queue in some meaningful way.  It is also where you will have the
+  // Object do whatever it would do in a given cycle.  This may include
+  // checking a timer to see if it needs to do something time based, or
+  // checking something in the "environment" around it to see if it needs
+  // to perform some given task.
+  //
+  // For example, an Object representing a network connection might check
+  // to see how long it has been since the connection was active, in case
+  // it needs to time out, or send a request to see if the connection is
+  // still alive.
+  //
+  // For the purpose of class lgp::Object, this function is null.  This is
+  // because lgp::Object is intended as a purely(well, mostly) virtual 
+  // interface class. The reason that there is no default implementation
+  // for Object::cycle() is because there really is no default behavior
+  // that can be said to be valid for all objects in a system.  It is
+  // important that the developer implements the functionality for the
+  // Objects in his/her system.
   
 } //end namespace lgp
+
 
 

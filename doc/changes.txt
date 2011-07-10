@@ -30,5 +30,7 @@
   * Reworked the concept of lgp::Object in the process of moving to a completely Object
     driven, Message passing approach.
   * Moved the test program for lgp::Message to this project as well 
-    
-    
+
+10 July 2011
+  * Did basic implementation for the base Object class.
+  * Corrected lgp::Object so that the private items are protected instead.
