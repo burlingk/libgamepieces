@@ -34,7 +34,7 @@
 
 #include <boost/test/included/unit_test.hpp> 
 
-#include <lgp/lgp_message.hpp>
+#include <lgp/message.hpp>
 #include <boost/lexical_cast.hpp>
 
 BOOST_AUTO_TEST_CASE(message_test)

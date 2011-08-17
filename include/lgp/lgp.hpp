@@ -1,17 +1,18 @@
 // A Place Holder till I make it better
 
+// TODO: This file needs updating!
 
 
 #ifndef _LGP_HPP_
 #define _LGP_HPP_
 
 
-#include <lgp/lgp_array.hpp>
-#include <lgp/lgp_random.hpp>
-#include <lgp/lgp_dicebag.hpp>
-#include <lgp/lgp_dicestack.hpp>
-#include <lgp/lgp_queue.hpp>
-#include <lgp/lgp_stack.hpp>
+#include <lgp/array.hpp>
+#include <lgp/random.hpp>
+#include <lgp/dicebag.hpp>
+#include <lgp/dicestack.hpp>
+#include <lgp/queue.hpp>
+#include <lgp/stack.hpp>
 
 
 

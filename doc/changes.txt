@@ -34,3 +34,13 @@
 10 July 2011
   * Did basic implementation for the base Object class.
   * Corrected lgp::Object so that the private items are protected instead.
+  
+16 July 2011
+  * Renamed the various include files frome lgp_module.hpp to just module.hpp.  I
+    did this because we already have the directory named lgp to differentiate them
+    from other libraries.  There is no need to say lgp/lgp_everything.
+  * I did the same with the various lgp class implementation files as well.
+  * Cleaned up the chaos that renaming all the files caused.  
+  * 
+  
+  
