@@ -3,4 +3,5 @@
 *Makefile#
 *.kdev4
 *.a
+bin/test/test_message
 
