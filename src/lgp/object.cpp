@@ -33,22 +33,29 @@
 
 namespace lgp {
   
-	Object::Object() : type_m(NULLOBJECT), access_m(PRIVATE), voice_m(PRIVATE), id_m(0)
+	Object::Object() : id_m(0), type_m(NULLOBJECT), access_m(PRIVATE), voice_m(PRIVATE)
 	{
 		return;
 	}
+
+	Object::Object(ObjectID id, ObjectData type, ObjectData access, ObjectData voice) 
+                : id_m(id), type_m(type), access_m(access), voice_m(voice)
+	{
+		return;
+	}
+
 	
 	Object::~Object()
 	{
 		return;
 	}
 	
-	ObjectID Object::id(void)
+	ObjectID Object::get_id(void)
 	{
 		return id_m;
 	}
 	
-	ObjectData Object::type(void)
+	ObjectData Object::get_type(void)
 	{
 		return type_m;
 	}

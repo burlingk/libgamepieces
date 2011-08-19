@@ -64,7 +64,7 @@ all: lib/libgamepieces.a tests
 #
 # This rule will be the one to compile the modules with
 # source files located in src/lgp
-$(LGPOBJECTS): %.o: src/lgp/%.cpp include/lgp/%.hpp
+$(LGPOBJECTS): %.o: src/lgp/%.cpp include/lgp/%.hpp include/lgp/objectdata.hpp
 	$(CPP) -c $(INCLUDES) -o $@ $<
 
 tests: bin/test/test_message

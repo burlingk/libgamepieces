@@ -55,10 +55,11 @@ namespace lgp {
   {
   public:
   	Object();
+        Object(ObjectID id, ObjectData type, ObjectData access, ObjectData voice);
   	virtual ~Object();
   	
-  	virtual ObjectID id(void);
-  	virtual ObjectData type(void);
+  	virtual ObjectID get_id(void);
+  	virtual ObjectData get_type(void);
   	
   	virtual void accept_message(std::string message);
   	virtual void cycle(void)=0; 

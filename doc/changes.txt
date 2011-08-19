@@ -41,6 +41,16 @@
     from other libraries.  There is no need to say lgp/lgp_everything.
   * I did the same with the various lgp class implementation files as well.
   * Cleaned up the chaos that renaming all the files caused.  
+
+17 August 2011
+  * Renamed lgp::Object::id() and lgp::Object::type() to lgp::Object::get_id() and
+    lgp::Object::get_type().
+  * Added a constructor to set the basic elements of lgp::Object
+  * Made a few tweaks to ObjectData.
   * 
+
+
+
+
   
   

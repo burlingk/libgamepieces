@@ -44,7 +44,7 @@ namespace lgp {
   	NULLOBJECT=0,
   	NULLMESSAGE=0,   //The Null Message.  Every system needs one.
   	
-  	//Message Types
+    //Message Types
     MSG,                  //A message that is intended to be sent to a target
     COMMAND,              //A Command that should be processed by the target
     INFOREQUEST,          //A request for information
@@ -59,8 +59,13 @@ namespace lgp {
     USER,                 //The message targets a user
     SERVER,               //The message targets a server
     CHANNEL,              //The message targets a channel
-    
-    ALLUSERS=9999         //A Global Message (targets all users)
+    OBJECT,               //The message targets an object
+    ALLUSERS,             //A Global Message (targets all users)
+
+    //Object Types
+    //USER, SERVER, CHANNEL, OBJECT, (Already listed under Target and Sender types.
+    USER_CONNECTION,
+
   }; //end enum ObjectData
   
   
